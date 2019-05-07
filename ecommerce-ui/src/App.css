@@ -4,7 +4,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 7vmin;
   pointer-events: none;
 }
 
@@ -30,4 +30,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+/***********************************************/
+.Card {
+  height: 350px;
+  width: 20%;
+  background-color: white;
+  border: 1px solid rgb(32, 30, 30);
+  margin-left: 80px;
+  margin-top: 10px;
+  margin-right: 20px;
+  float: left;
+}
+
+.MyImage {
+  float: left;
+  width: 273px;
+  height: 180px;
+  margin-right: 5px;
 }
