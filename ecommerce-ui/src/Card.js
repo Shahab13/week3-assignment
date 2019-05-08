@@ -3,7 +3,9 @@ import React, { Component } from "react";
 export default class Card extends Component {
   state = { A: 0 };
 
-  handleClick = j => {
+  handleClick = x => {
+    this.props.shList.push(x);
+    console.log(this.props.shList);
     this.setState({
       A: this.state.A + 1
     });
@@ -46,11 +48,13 @@ export default class Card extends Component {
           <br />
           <span style={{ paddingLeft: "5px" }}>{x.payment["description"]}</span>
           <br />
-          <button style={buttonStyle} onClick={() => this.handleClick({ i })}>
+          <button style={buttonStyle} onClick={() => this.handleClick(x)}>
             Add to cart
           </button>
           <br />
-          <span style={{ paddingLeft: "5px" }}>A= {this.state.A}</span>
+          <span style={{ paddingLeft: "5px" }}>
+            A= {this.state.A} id={i}
+          </span>
         </div>
       );
     });

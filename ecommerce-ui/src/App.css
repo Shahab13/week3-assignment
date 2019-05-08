@@ -32,12 +32,20 @@
   }
 }
 /***********************************************/
+.MyRoundImage {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
 .Card {
   height: 350px;
   width: 20%;
   background-color: white;
   border: 1px solid rgb(32, 30, 30);
-  margin-left: 80px;
+  margin-left: 40px;
   margin-top: 10px;
   margin-right: 20px;
   float: left;

@@ -1,19 +1,31 @@
-import React from "react";
-
+//import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Card from "./Card";
 import airbnbs from "./airbnbs.json";
 import ShoppingCart from "./ShoppingCart";
 
-function App() {
-  return (
-    <div>
-      <ShoppingCart />
-      <br />
-      <hr />
-      <Card data={airbnbs} />
-    </div>
-  );
+class App extends Component {
+  state = {
+    A: 0,
+    shoppingList: [1]
+  };
+
+  changList(temp) {
+    this.setState({
+      shoppingList: temp
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <ShoppingCart shList={this.state.shoppingList} />
+        <br />
+        <Card data={airbnbs} changList={this.state.shoppingList} />
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,25 +1,27 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 
 export default class ShoppingCart extends Component {
+  state = { B: 0 };
   render() {
     const shoppCard = {
-      height: "150px",
+      height: "400px",
       width: "20%",
-      backgroundColor: "red",
+      backgroundColor: "white",
       border: "1px solid rgb(32, 30, 30)",
-      marginLeft: "80px",
-      marginTop: "10px",
+      marginLeft: "10px",
+      marginTop: "30px",
       marginRight: "20px",
-      position: "relative"
+      position: "relative",
+      float: "left"
     };
-    const logoStyle = {
+    /*  const logoStyle = {
       position: "absolute",
       top: "1px",
       right: "1px",
       color: "yellow"
       //backgroundColor: "green"
-    };
+    };*/
     const buttonStyle = {
       position: "absolute",
       bottom: "5px",
@@ -27,14 +29,23 @@ export default class ShoppingCart extends Component {
       color: "red",
       backgroundColor: "yellow"
     };
-
     const divStyle = { position: "relative" };
-    return (
-      <div style={divStyle}>
-        <div style={shoppCard}>
-          <img src={logo} className="App-logo" alt="logo" style={logoStyle} />
+
+    let shoppingList = this.props.shList.map((x, i) => {
+      return (
+        <div style={divStyle} key={i}>
+          {/*<img src={logo} className="App-logo" alt="logo" style={logoStyle} />
+          <img src={x["image"]} alt="Oops!" className="MyRoundImage" />*/}
+
+          <span>{x["title"]}</span>
           <button style={buttonStyle}>Remove</button>
         </div>
+      );
+    });
+
+    return (
+      <div style={shoppCard}>
+        <div>{shoppingList}</div>
       </div>
     );
   }
