@@ -10,8 +10,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      shoppingList: [],
-      dummy: false
+      shoppingList: []
     };
     //this.setState = this.setState.bind(this);
     this.setState = this.state.shoppingList.push.bind(this);
@@ -19,15 +18,17 @@ class App extends Component {
 
   changShoppingList = temp => {
     //console.log(temp);
+    // let x
     this.setState({
-      dummy: !this.state.dummy,
+      //dummy: this.state.dummy + 1,
       shoppingList: this.state.shoppingList.push(temp)
     });
-    console.log(this.state.shoppingList);
+    this.forceUpdate();
+    // console.log(this.state.shoppingList);
   };
 
   render() {
-    console.log("render");
+    console.log(this.state.dummy);
     // console.log(this.state.shoppingList);
     return (
       <div>

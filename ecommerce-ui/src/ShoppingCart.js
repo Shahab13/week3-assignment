@@ -24,8 +24,8 @@ export default class ShoppingCart extends Component {
     };*/
     const buttonStyle = {
       position: "absolute",
-      bottom: "5px",
-      right: "10px",
+      bottom: "8px",
+      right: "5px",
       color: "red",
       backgroundColor: "yellow"
     };
@@ -34,17 +34,25 @@ export default class ShoppingCart extends Component {
     let shoppingList = this.props.shList.map((x, i) => {
       return (
         <div style={divStyle} key={i}>
-          {/*<img src={logo} className="App-logo" alt="logo" style={logoStyle} />*/}
-          <img src={x["image"]} alt="Oops!" className="MyRoundImage" />
+          <div style={divStyle}>
+            {/*<img src={logo} className="App-logo" alt="logo" style={logoStyle} />*/}
+            <img src={x["image"]} alt="Oops!" className="MyRoundImage" />
+            <br />
 
-          <span>{x["title"]}</span>
-          <button style={buttonStyle}>Remove</button>
+            <span>{x.location["city"]}</span>
+            <span> ${x.payment["cost"]}</span>
+            <button style={buttonStyle}>Remove</button>
+            <hr />
+          </div>
+          <br />
         </div>
       );
     });
 
     return (
       <div style={shoppCard}>
+        <h2 style={{ color: "red", paddingLeft: "45px" }}>Shopping Cart</h2>
+        <hr />
         <div>{shoppingList}</div>
       </div>
     );
