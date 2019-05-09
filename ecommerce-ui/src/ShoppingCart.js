@@ -34,8 +34,8 @@ export default class ShoppingCart extends Component {
     let shoppingList = this.props.shList.map((x, i) => {
       return (
         <div style={divStyle} key={i}>
-          {/*<img src={logo} className="App-logo" alt="logo" style={logoStyle} />
-          <img src={x["image"]} alt="Oops!" className="MyRoundImage" />*/}
+          {/*<img src={logo} className="App-logo" alt="logo" style={logoStyle} />*/}
+          <img src={x["image"]} alt="Oops!" className="MyRoundImage" />
 
           <span>{x["title"]}</span>
           <button style={buttonStyle}>Remove</button>

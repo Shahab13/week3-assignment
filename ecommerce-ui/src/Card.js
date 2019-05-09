@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 
 export default class Card extends Component {
-  state = { A: 0 };
+  state = { A: 0, B: [1, 2] };
 
   handleClick = x => {
-    this.props.shList.push(x);
-    console.log(this.props.shList);
-    this.setState({
-      A: this.state.A + 1
-    });
-    console.log(this.A);
+    console.log("Hi");
+
+    //this.props.changList = x;
+    console.log(this.props.changList);
+    //() => this.changShoppingList(this.state.shoppingList)
+    console.log(x);
+
+    // this.setState({
+    //   A: this.state.A + 1
+    // });
+    // console.log(this.A);
   };
   render() {
     const divStyle = { position: "relative" };
@@ -48,7 +53,7 @@ export default class Card extends Component {
           <br />
           <span style={{ paddingLeft: "5px" }}>{x.payment["description"]}</span>
           <br />
-          <button style={buttonStyle} onClick={() => this.handleClick(x)}>
+          <button style={buttonStyle} onClick={() => this.props.changList(x)}>
             Add to cart
           </button>
           <br />
