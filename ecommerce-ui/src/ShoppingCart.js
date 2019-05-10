@@ -56,7 +56,9 @@ export default class ShoppingCart extends Component {
 
     return (
       <div style={shoppCard}>
-        <h2 style={{ color: "red", paddingLeft: "5px" }}>Shopping Cart: ${}</h2>
+        <h2 style={{ color: "red", paddingLeft: "5px" }}>
+          Shopping Cart: ${this.props.totalx.pop()}
+        </h2>
         <hr />
         <div>{shoppingList}</div>
       </div>

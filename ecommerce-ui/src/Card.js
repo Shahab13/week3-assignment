@@ -57,9 +57,9 @@ export default class Card extends Component {
             Add to cart
           </button>
           <br />
-          <span style={{ paddingLeft: "5px" }}>
+          {/* <span style={{ paddingLeft: "5px" }}>
             A= {this.state.A} id={i}
-          </span>
+          </span> */}
         </div>
       );
     });
