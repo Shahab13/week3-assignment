@@ -1,4 +1,3 @@
-//import React from "react";
 import React, { Component } from "react";
 import "./App.css";
 import Card from "./Card";
@@ -17,20 +16,15 @@ class App extends Component {
   }
 
   changShoppingList = temp => {
-    let y = 0;
     if (this.state.shoppingList.includes(temp)) {
       alert("You already have this rental in your cart!");
     } else {
       this.setState(
         {
           shoppingList: this.state.shoppingList.push(temp)
-          //total: 13
-          // totalx: this.state.shoppingList.map(x => {
-          //   return (y += x.payment["cost"]);
-          // })
-        },
+        }
 
-        console.log(`y: ${y}------total: ${this.state.totalx}xxx`)
+        // console.log(`y: ${y}------total: ${this.state.totalx}xxx`)
       );
     }
 
@@ -38,12 +32,10 @@ class App extends Component {
   };
 
   removeShoppingList = i => {
-    let y = 0;
     this.setState({
       shoppingList: this.state.shoppingList.splice(i, 1)
     });
-    console.log(`y: ${y}------total: ${this.state.totalx}`);
-    //this.calcTotal();
+    //console.log(`y: ${y}------total: ${this.state.totalx}`);
     this.forceUpdate();
   };
 
