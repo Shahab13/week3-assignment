@@ -18,17 +18,21 @@ class App extends Component {
 
   changShoppingList = temp => {
     let y = 0;
-    this.setState(
-      {
-        shoppingList: this.state.shoppingList.push(temp)
-        //total: 13
-        // totalx: this.state.shoppingList.map(x => {
-        //   return (y += x.payment["cost"]);
-        // })
-      },
+    if (this.state.shoppingList.includes(temp)) {
+      alert("You already have this rental in your cart!");
+    } else {
+      this.setState(
+        {
+          shoppingList: this.state.shoppingList.push(temp)
+          //total: 13
+          // totalx: this.state.shoppingList.map(x => {
+          //   return (y += x.payment["cost"]);
+          // })
+        },
 
-      console.log(`y: ${y}------total: ${this.state.totalx}xxx`)
-    );
+        console.log(`y: ${y}------total: ${this.state.totalx}xxx`)
+      );
+    }
 
     this.forceUpdate();
   };
