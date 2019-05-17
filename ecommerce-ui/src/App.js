@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+//import React, { Component } from "react";
 import "./App.css";
 import Card from "./Card";
 import airbnbs from "./airbnbs.json";
 import ShoppingCart from "./ShoppingCart";
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,52 +13,43 @@ class App extends Component {
       totalx: 0,
       shoppingList: []
     };
-    this.setState = this.state.shoppingList.push.bind(this);
   }
 
   changShoppingList = temp => {
     if (this.state.shoppingList.includes(temp)) {
       alert("You already have this rental in your cart!");
     } else {
-      this.setState(
-        {
-          shoppingList: this.state.shoppingList.push(temp)
-        }
-
-        // console.log(`y: ${y}------total: ${this.state.totalx}xxx`)
-      );
+      this.setState(f => {
+        return { shoppingList: [...f.shoppingList, temp] };
+      });
     }
-
-    this.forceUpdate();
   };
 
   removeShoppingList = i => {
-    this.setState({
-      shoppingList: this.state.shoppingList.splice(i, 1)
+    this.setState(prevState => {
+      let g = prevState.shoppingList;
+      g.splice(i, 1);
+      return { shoppingList: g };
     });
-    //console.log(`y: ${y}------total: ${this.state.totalx}`);
-    this.forceUpdate();
   };
 
   render() {
     let zz = 0;
     return (
       <div>
+        <h2>{this.state.a}</h2>
         <ShoppingCart
           shList={this.state.shoppingList}
           removeList={this.removeShoppingList}
-          totalx={this.state.shoppingList.map(x => {
-            return (zz += parseInt(x.payment["cost"]));
-          })}
+          totalx={
+            //          this.calcTotal
+            this.state.shoppingList.map(x => {
+              return (zz += parseInt(x.payment["cost"]));
+            })
+          }
         />
         <br />
-        <Card
-          data={airbnbs}
-          changList={this.changShoppingList}
-          totalx={this.state.shoppingList.map(x => {
-            return (zz += x.payment["cost"]);
-          })}
-        />
+        <Card data={airbnbs} changList={this.changShoppingList} />
       </div>
     );
   }
